@@ -19,12 +19,11 @@ const operation = (operator) => {
 // higher order function that returns discounted price 
 
 const createDiscount = (percentage) => {
-    const totalPrice = (price) => {
+    const discountedPrice = (price) => {
         total= price -  ((price * percentage) / 100)
         return total
     }
-    return totalPrice
-
+    return discountedPrice
     
 }
 
