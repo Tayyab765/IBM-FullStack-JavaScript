@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess Number</title>
+    <link rel="stylesheet" href="./src/output.css" />
+  </head>
+  <body class="flex justify-center h-screen items-center">
+    <div class="bg-taupe-100 p-10 rounded-2xl justify-center items-center">
+      <div class="items-center text-3xl">Guess Number Game</div>
+      <div
+        id="hidden_number"
+        class="flex p-10 justify-center items-center text-7xl"
+      >
+        🔒
+      </div>
+      <div class="flex gap-3">
+        <div class="bg-green-300 font-semibold px-2 rounded-lg">Status</div>
+        <div id="status_text" class="text-gray-500">Guess Your Number!!!</div>
+      </div>
+      <div class="flex gap-3 mt-4">
+        <input
+          id="guessed_number"
+          type="text"
+          placeholder="Guess Your Number"
+          class="border-1 text-sm"
+        />
+        <div
+          id="submit"
+          class="bg-blue-500 rounded-sm text-white text-center px-2 hover:bg-blue-600 hover:shadow-lg cursor-pointer"
+        >
+          Submit
+        </div>
+      </div>
+      <div
+        id="reset"
+        class="bg-blue-500 mt-5 text-white text-center rounded-sm px-2 hover:bg-blue-600 hover:shadow-lg cursor-pointer"
+      >
+        Start/Reset
+      </div>
+      <div
+        id="close"
+        class="bg-blue-500 mt-3 text-white text-center rounded-sm px-2 hover:bg-blue-600 hover:shadow-lg cursor-pointer"
+      >
+        Close
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
