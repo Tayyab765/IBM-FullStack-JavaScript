@@ -1,0 +1,5 @@
+# ignore node modules and env and all other files that should not be tracked by git
+
+node_modules/
+.env
+.DS_Store

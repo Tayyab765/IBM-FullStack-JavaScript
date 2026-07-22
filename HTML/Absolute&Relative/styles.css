@@ -1,0 +1,30 @@
+body{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    font-weight: 700;
+    font-size: 24px;
+    border: 1px dotted;
+    padding: 10px 5px 7px 2px;
+}
+.parent{
+    position: relative;
+}
+.child{
+    position: absolute;
+    bottom: -40px;
+    /* visibility: hidden; */
+    opacity: 0;
+    background-color: aqua;
+    padding: 5px;
+    border: 2px solid aquamarine;
+    border-radius: 20px;
+}
+.setting_menu{
+    cursor: pointer;
+}
+.setting_menu:hover .child{
+    /* visibility: visible; */
+    opacity: 1;
+}
