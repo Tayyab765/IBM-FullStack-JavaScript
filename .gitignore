@@ -3,3 +3,9 @@
 node_modules/
 .env
 .DS_Store
+
+# all the node modules in the nested folder should not included
+**/node_modules/
+**/env
+**/.DS_Store
+**/.env
