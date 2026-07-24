@@ -7,10 +7,17 @@ let hidden_number = document.getElementById("hidden_number")
 
 let random_number = 0;
 
+guessed_number.disabled = true;
+submit.disabled = true;
+
 reset.addEventListener("click",()=>{
     random_number = Math.floor(Math.random()*100)+1;
     status_text.innerHTML = "Game Started!!!"
     hidden_number.innerHTML = "🔒"
+    guessed_number.disabled = false;
+    submit.disabled = false;
+    guessed_number.value = "";
+    guessed_number.focus();
 })
 
 submit.addEventListener("click",()=>{
