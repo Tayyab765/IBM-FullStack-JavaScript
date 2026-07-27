@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+.menu_style{
+    @apply  cursor-pointer hover:text-blue-500 hover:scale-100 hover:font-bold
+}
+
+.active_tab{
+    @apply cursor-pointer hover:text-blue-500 hover:scale-100 hover:font-bold bg-white text-black p-1
+}
