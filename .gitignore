@@ -9,3 +9,61 @@ node_modules/
 **/env
 **/.DS_Store
 **/.env
+
+# all the vite files that should not be tracked by git also in sub folders
+**/vite.config.js
+
+dist/
+
+# ==========================================
+# Environment Variables (Main & Sub-folders)
+# ==========================================
+# Matches any .env file anywhere in the project
+.env
+.env.local
+.env.*.local
+*.env
+
+# ==========================================
+# Virtual Environments (Python / Node)
+# ==========================================
+# Matches venv or .venv folders anywhere in the tree
+venv/
+.venv/
+env/
+ENV/
+node_modules/
+
+# ==========================================
+# Vite / Frontend Build and Cache Folders
+# ==========================================
+# Matches Vite build output and local cache
+dist/
+dist-ssr/
+*.local
+.vite/
+.nuxt/
+.next/
+
+# ==========================================
+# IDEs, Editors & OS Files
+# ==========================================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# Logs and Diagnostics
+# ==========================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
