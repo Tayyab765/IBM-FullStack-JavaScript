@@ -6,7 +6,7 @@ import NewApp from "./NewApp.jsx"
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <NewApp />
     {/* <App /> */}
+    <NewApp />
   </StrictMode>,
 )

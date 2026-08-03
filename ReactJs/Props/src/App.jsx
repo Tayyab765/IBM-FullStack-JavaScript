@@ -3,20 +3,23 @@ import { StudentPanel } from "./components/StudentPanel.jsx";
 import { TaskList } from "./components/Tasks.jsx";
 
 class Task {
-  constructor(title, status) {
+  constructor(title, desc, status) {
     this.title = title;
+    this.desc = desc;
     this.status = status;
   }
 }
 
 function AddFormPanel({ addNewTask }) {
   const [title, setTitle] = useState("");
-  const [status, setStatus] = useState("Pending");
+  const [desc, setDesc] = useState("");
+  const [status, setStatus] = useState("incomplete");
 
   function clickAddTaskHandler() {
-    addNewTask(new Task(title, status));
+    addNewTask(new Task(title, desc, status));
     setTitle((pre) => "");
-    setStatus((pre) => "");
+    setDesc((pre) => "");
+    setStatus((pre) => "incomplete");
   }
 
   return (
@@ -31,13 +34,24 @@ function AddFormPanel({ addNewTask }) {
           className="border p-2"
         />
         <input
-          onChange={(event) => setStatus((pre) => event.target.value)}
-          type="text"
+          onChange={(event) => setDesc((pre) => event.target.value)}
+          type=""
           name=""
-          value={status}
-          placeholder="Enter Title"
+          value={desc}
+          placeholder="Enter description"
           className="border p-2"
         />
+        <select
+          onChange={(event) => setStatus((pre) => event.target.value)}
+          name="status"
+          value={status}
+          id=""
+          className="border"
+        >
+          <option value="incomplete">Incomplete</option>
+          <option value="pending">Pending</option>
+          <option value="complete">Complete</option>
+        </select>
         <button
           onClick={clickAddTaskHandler}
           className="bg-blue-500 py-2 rounded-md cursor-pointer "
@@ -55,7 +69,7 @@ function TaskCard({ taskForCard, deleteCardTask, taskIndex }) {
       <div className="w-100">
         <div className="flex flex-col bg-green-300 p-10 mt-5 rounded-lg gap-2 ">
           <div className="text-2xl font-bold">{taskForCard.title}</div>
-          <div> {taskForCard.status}</div>
+          <div> {taskForCard.desc}</div>
           <button
             onClick={() => deleteCardTask(taskIndex)}
             className="bg-red-300 py-2 rounded-md cursor-pointer"
@@ -84,10 +98,10 @@ function TaskDisplayPanel({ currentTasks, deleteSomeTask }) {
 
 function App() {
   const [myTasks, setMyTask] = useState([
-    new Task("Coding", "Complete"),
-    new Task("Assignment", "Incomplete"),
-    new Task("Prepare Quiz", "Started"),
-    new Task("Reading", "Complete"),
+    new Task("Coding", "complete"),
+    new Task("Assignment", "incomplete"),
+    new Task("Prepare Quiz", "pending"),
+    new Task("Reading", "complete"),
   ]);
 
   const addTask = (newTask) => {
