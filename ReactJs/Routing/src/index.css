@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.center_div {
+  @apply flex flex-col justify-center items-center h-screen;
+}

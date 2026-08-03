@@ -31,4 +31,12 @@ export const useTaskStore = create((set) => ({
       console.log(`index ${index} deleted`);
     }
   },
+
+  updateTaskByIndex: (index, updatedTask) => {
+    set((state) => ({
+      myTasks: state.myTasks.map((task, i) =>
+        i === index ? { ...task, ...updatedTask } : task,
+      ),
+    }));
+  },
 }));

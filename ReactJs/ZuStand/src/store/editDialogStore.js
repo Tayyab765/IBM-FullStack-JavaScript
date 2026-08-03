@@ -2,16 +2,19 @@ import { create } from "zustand";
 
 export const useDialogStore = create((set) => ({
   showDialog: false,
+  selectedTaskIndex: null,
 
-  enableEditDialog: () => {
-    set((state) => ({
+  enableEditDialog: (taskIndex) => {
+    set(() => ({
       showDialog: true,
+      selectedTaskIndex: taskIndex,
     }));
   },
 
   disableEditDialog: () => {
-    set((state) => ({
+    set(() => ({
       showDialog: false,
+      selectedTaskIndex: null,
     }));
   },
 }));

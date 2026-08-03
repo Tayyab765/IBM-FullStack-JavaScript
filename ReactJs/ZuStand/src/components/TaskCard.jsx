@@ -1,9 +1,10 @@
 import { useTaskStore } from "../store/taskStore";
-import { TaskDisplayPanel } from "./TaskDisplayPanel";
+import { useDialogStore } from "../store/editDialogStore";
 
 export function TaskCard({ taskIndex }) {
   const tasks = useTaskStore((state) => state.myTasks);
   const taskDeleter = useTaskStore((state) => state.deleteTask);
+  const openEditDialog = useDialogStore((state) => state.enableEditDialog);
 
   return (
     <>
@@ -13,7 +14,7 @@ export function TaskCard({ taskIndex }) {
           <div> {tasks[taskIndex].desc}</div>
           <div className="flex gap-3">
             <button
-              // onClick={() => taskDeleter(taskIndex)}
+              onClick={() => openEditDialog(taskIndex)}
               className="flex-1 bg-red-300 py-2 rounded-md cursor-pointer"
             >
               Edit

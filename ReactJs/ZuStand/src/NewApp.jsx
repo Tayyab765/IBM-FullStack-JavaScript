@@ -1,8 +1,4 @@
-import { useState } from "react";
-
-import { useTaskStore } from "./store/taskStore.js";
 import { AddFormPanel } from "./components/AddFormPanel.jsx";
-import { TaskCard } from "./components/TaskCard.jsx";
 import { TaskDisplayPanel } from "./components/TaskDisplayPanel.jsx";
 import { EditTask } from "./components/EditTaskDialog.jsx";
 import { useDialogStore } from "./store/editDialogStore.js";
@@ -19,9 +15,11 @@ function NewApp() {
         <div className="flex-1 overflow-y-auto ">
           <TaskDisplayPanel />
         </div>
-        <div>
-          <EditTask />
-        </div>
+        {displayDialogBox && (
+          <div>
+            <EditTask />
+          </div>
+        )}
       </div>
     </>
   );
