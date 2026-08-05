@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+.center_div {
+  @apply flex flex-col justify-center items-center h-screen;
+}
+
+.button_style {
+  @apply bg-blue-500 p-2 rounded-lg cursor-pointer text-white hover:bg-blue-600;
+}
