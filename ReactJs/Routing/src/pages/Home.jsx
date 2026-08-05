@@ -29,6 +29,11 @@ export function Home() {
               Dashboard
             </button>
           </Link>
+          <Link to="/products">
+            <button className="bg-blue-500 p-2 rounded-lg cursor-pointer ">
+              Products
+            </button>
+          </Link>
         </div>
       </div>
     </>

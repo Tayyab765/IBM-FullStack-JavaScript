@@ -7,6 +7,8 @@ import { Dashboard } from "./pages/Dashboard";
 import { Settings } from "./pages/Settings";
 import { Profile } from "./pages/Profile";
 import DashboardHome from "./pages/DashboardHome";
+import { Products } from "./pages/Products";
+import { ProductView } from "./pages/ProductView";
 
 function App() {
   return (
@@ -16,7 +18,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          {/* <Route path="/dashboard" element={<Dashboard />}></Route> */}
+          <Route path="/products" element={<Products />}></Route>
+          <Route path="/product_view/:id" element={<ProductView />}></Route>
 
           <Route path="/dashboard" element={<Dashboard />}>
             <Route index element={<DashboardHome />}></Route>
