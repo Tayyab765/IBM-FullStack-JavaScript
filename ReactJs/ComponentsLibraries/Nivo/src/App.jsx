@@ -46,8 +46,8 @@ const data = [
   {
     id: "python",
     label: "python",
-    value: 451,
-    color: "hsl(297, 70%, 50%)",
+    value: 500,
+    color: "hsl(110, 70%, 50%)",
   },
   {
     id: "rust",
@@ -61,54 +61,6 @@ const data = [
     value: 436,
     color: "hsl(190, 70%, 50%)",
   },
-  {
-    id: "hack",
-    label: "hack",
-    value: 164,
-    color: "hsl(199, 70%, 50%)",
-  },
-  {
-    id: "css",
-    label: "css",
-    value: 45,
-    color: "hsl(108, 70%, 50%)",
-  },
-  {
-    id: "ruby",
-    label: "ruby",
-    value: 334,
-    color: "hsl(341, 70%, 50%)",
-  },
-  {
-    id: "sass",
-    label: "sass",
-    value: 376,
-    color: "hsl(292, 70%, 50%)",
-  },
-  {
-    id: "go",
-    label: "go",
-    value: 303,
-    color: "hsl(177, 70%, 50%)",
-  },
-  {
-    id: "stylus",
-    label: "stylus",
-    value: 347,
-    color: "hsl(161, 70%, 50%)",
-  },
-  {
-    id: "elixir",
-    label: "elixir",
-    value: 139,
-    color: "hsl(21, 70%, 50%)",
-  },
-  {
-    id: "lisp",
-    label: "lisp",
-    value: 121,
-    color: "hsl(285, 70%, 50%)",
-  },
 ];
 
 const MyPieCanvas = ({ data /* see data tab */ }) => (
@@ -120,7 +72,7 @@ const MyPieCanvas = ({ data /* see data tab */ }) => (
       padAngle={0.6}
       cornerRadius={2}
       activeOuterRadiusOffset={8}
-      colors={{ scheme: "paired" }}
+      colors={{ scheme: "category10" }}
       arcLinkLabelsSkipAngle={10}
       arcLinkLabelsTextColor="#333333"
       arcLinkLabelsThickness={2}
