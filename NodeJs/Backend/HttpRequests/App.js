@@ -73,7 +73,6 @@ const myserver = http.createServer((req, res) => {
         res.statusCode = 405;
         return res.end("Unknown method found");
     }
-    return res.end(`Welcome to users page`);
   } else if (req.url === "/contact") {
     switch (req.method) {
       case "GET":
