@@ -1,5 +1,7 @@
 import express from "express";
 
+import { userRouter } from "./routes/UserRoutes.js";
+
 const users = [
   {
     id: 1,
@@ -744,6 +746,7 @@ const server = express();
 
 server.use(logger);
 server.use(express.json());
+server.use("/users", userRouter);
 
 server.get("/", (req, res) => {
   console.log("Welcome to landing");
@@ -756,41 +759,6 @@ server.post("/login", validate, verify, (req, res) => {
 
   console.log("Login page");
   res.send("Login Sucessful");
-});
-
-server.get("/users", checkAuth, (req, res) => {
-  console.log("Users get");
-  let result = users;
-  for (let [key, value] of Object.entries(req.query)) {
-    if (key === "minAge") {
-      result = result.filter((user) => Number(user.age >= Number(value)));
-    } else {
-      result = result.filter(
-        (user) => user[key].toLocaleLowerCase() === value.toLocaleLowerCase(),
-      );
-    }
-    console.log(`${key} , ${value}`);
-  }
-  res.send(result);
-});
-
-server.get("/users/:id", (req, res) => {
-  console.log("User get with parameter");
-  res.json(users.filter((user) => Number(user.id) === Number(req.params.id)));
-});
-
-server.post("/users", (req, res) => {
-  console.log("User Post page");
-});
-
-server.put("/users", (req, res) => {
-  console.log("User put page");
-  res.send("Put Users");
-});
-
-server.delete("/users", (req, res) => {
-  console.log("User delete page");
-  res.send("Delete Users");
 });
 
 server.listen(3000, () => {
