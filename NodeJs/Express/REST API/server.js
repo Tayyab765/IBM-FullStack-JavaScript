@@ -703,43 +703,93 @@ const users = [
   },
 ];
 
+function logger(req, res, next) {
+  console.log("Greetings to the middleware.");
+  next();
+}
+
+function checkAuth(req, res, next) {
+  const loggedIn = true;
+  if (loggedIn) {
+    next();
+  } else {
+    res.status(401).send("Unauthorized User");
+  }
+}
+
+function validate(req, res, next) {
+  console.log("validation started");
+  const { email, password } = req.body;
+  if (!email.includes("@") || !email.includes(".com")) {
+    res.status(400).send("Invalid email");
+  } else if (password.length < 8) {
+    res.status(400).send("Passowrd must be atleast 8 charecters long!");
+  } else {
+    console.log("validation sucessful");
+    next();
+  }
+}
+
+function verify(req, res, next) {
+  console.log("Verificaon started");
+  const { email, password } = req.body;
+  if (email === "tayyab@gmail.com" && password === "12345678") {
+    next();
+  } else {
+    res.status(400).send("Invalid credencials");
+  }
+}
+
 const server = express();
 
+server.use(logger);
 server.use(express.json());
 
 server.get("/", (req, res) => {
+  console.log("Welcome to landing");
   res.send("Welcome");
 });
 
-server.get("/users", (req, res) => {
+server.post("/login", validate, verify, (req, res) => {
+  // const { email, password } = req.body;
+  // console.log(first);
+
+  console.log("Login page");
+  res.send("Login Sucessful");
+});
+
+server.get("/users", checkAuth, (req, res) => {
+  console.log("Users get");
   let result = users;
   for (let [key, value] of Object.entries(req.query)) {
     if (key === "minAge") {
       result = result.filter((user) => Number(user.age >= Number(value)));
     } else {
-        result = result.filter(
-              (user) =>
-                user[key].toLocaleLowerCase() === value.toLocaleLowerCase(),
-            );
+      result = result.filter(
+        (user) => user[key].toLocaleLowerCase() === value.toLocaleLowerCase(),
+      );
     }
     console.log(`${key} , ${value}`);
   }
-  console.log();
   res.send(result);
 });
 
 server.get("/users/:id", (req, res) => {
-  console.log(req.params.id);
+  console.log("User get with parameter");
   res.json(users.filter((user) => Number(user.id) === Number(req.params.id)));
 });
 
-server.post("/users", (req, res) => {});
+server.post("/users", (req, res) => {
+  console.log("User Post page");
+});
 
 server.put("/users", (req, res) => {
+  console.log("User put page");
   res.send("Put Users");
 });
 
 server.delete("/users", (req, res) => {
+  console.log("User delete page");
   res.send("Delete Users");
 });
 
