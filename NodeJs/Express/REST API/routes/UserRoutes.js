@@ -1,5 +1,8 @@
 import express from "express";
 
+import { checkAuth } from "../middlewares/auth.js";
+import { users } from "../models/users.js";
+
 export const userRouter = express.Router();
 
 userRouter.get("/", checkAuth, (req, res) => {
